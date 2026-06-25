@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Customer Feedback – N.L. Villa Memorial Medical Center</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    .form-wrapper {
+      background: #fff;
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      width: 100%;
+      max-width: 720px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      font-size: 0.92rem;
+      color: #666;
+      margin-bottom: 1.8rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1rem;
+    }
+
+    label.field-label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 0.4rem;
+    }
+
+    label.field-label span {
+      color: #e53935;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    textarea {
+      border: 1.5px solid #d0d0d0;
+      border-radius: 50px;
+      padding: 0.75rem 1.2rem;
+      font-size: 0.95rem;
+      color: #1a1a1a;
+      outline: none;
+      transition: border-color 0.2s;
+      font-family: inherit;
+      background: #fafafa;
+      width: 100%;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #2e8b57;
+      background: #fff;
+    }
+
+    input::placeholder, textarea::placeholder {
+      color: #aaa;
+    }
+
+    textarea {
+      border-radius: 20px;
+      resize: vertical;
+      min-height: 120px;
+      padding: 0.9rem 1.2rem;
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 0.2rem;
+    }
+
+    .checkbox-group label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+      color: #333;
+      cursor: pointer;
+    }
+
+    .checkbox-group input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: #2e8b57;
+      cursor: pointer;
+    }
+
+    .other-input {
+      border: 1.5px solid #d0d0d0;
+      border-radius: 50px;
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      color: #1a1a1a;
+      outline: none;
+      font-family: inherit;
+      background: #fafafa;
+      width: 60%;
+      margin-left: 1.5rem;
+      margin-top: 0.3rem;
+      display: none;
+    }
+
+    .other-input:focus {
+      border-color: #2e8b57;
+      background: #fff;
+    }
+
+    .privacy-box {
+      background: #f0f7f4;
+      border: 1px solid #c3ddd0;
+      border-radius: 12px;
+      padding: 1rem 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .privacy-box p {
+      font-size: 0.88rem;
+      color: #444;
+      margin-bottom: 0.75rem;
+      line-height: 1.5;
+    }
+
+    .privacy-box label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #2e8b57;
+      cursor: pointer;
+    }
+
+    .privacy-box input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: #2e8b57;
+    }
+
+    .btn-submit {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #2e8b57;
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: 0.75rem 2rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 0.5rem;
+    }
+
+    .btn-submit:hover { background: #246b44; }
+
+    .btn-submit svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: white;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .success-msg {
+      display: none;
+      background: #e8f5ef;
+      border: 1px solid #2e8b57;
+      color: #1a5c37;
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      margin-top: 1rem;
+      font-size: 0.93rem;
+    }
+
+    @media (max-width: 540px) {
+      .other-input { width: 90%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="form-wrapper">
+    <h2>Customer Feedback</h2>
+    <p class="subtitle">We value your feedback! Please take a moment to share your experience with us.</p>
+
+    <form id="feedbackForm">
+
+      <div class="form-group">
+        <label class="field-label">Feedback Type <span>*</span></label>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="feedback_type" value="Comments"> Comments</label>
+          <label><input type="checkbox" name="feedback_type" value="Questions"> Questions</label>
+          <label><input type="checkbox" name="feedback_type" value="Suggestions"> Suggestions</label>
+          <label><input type="checkbox" name="feedback_type" value="Other" id="otherCheckbox"> Other:</label>
+          <input type="text" class="other-input" id="otherInput" placeholder="Please specify..." />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="field-label">Name <span>*</span></label>
+        <input type="text" name="name" placeholder="Enter your full name" required />
+      </div>
+
+      <div class="form-group">
+        <label class="field-label">Address <span>*</span></label>
+        <input type="text" name="address" placeholder="Enter your address" required />
+      </div>
+
+      <div class="form-group">
+        <label class="field-label">Contact Number <span>*</span></label>
+        <input type="tel" name="contact_number" placeholder="Enter your contact number" required />
+      </div>
+
+      <div class="form-group">
+        <label class="field-label">Your Feedback <span>*</span></label>
+        <textarea name="feedback" placeholder="Share your comments, concerns, or recommendations here." required></textarea>
+      </div>
+
+      <div class="privacy-box">
+        <p>Your responses will remain confidential and will be used solely for quality improvement purposes.</p>
+        <label>
+          <input type="checkbox" id="privacyCheck" required>
+          I agree to submit my feedback.
+        </label>
+      </div>
+
+      <button type="submit" class="btn-submit">
+        Submit Feedback
+        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </form>
+
+    <div class="success-msg" id="successMsg">
+      ✅ Thank you for your feedback! Your response has been submitted successfully.
+    </div>
+  </div>
+
+  <script>
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw2evnkIFijhs-dTfdwfb0imIAnu-4TrFDKPWT7i_hCAMO6upj8WB-GJBCxijFsQ9LU/exec';
+
+    const otherCheckbox = document.getElementById('otherCheckbox');
+    const otherInput = document.getElementById('otherInput');
+
+    otherCheckbox.addEventListener('change', function() {
+      otherInput.style.display = this.checked ? 'block' : 'none';
+    });
+
+    const form = document.getElementById('feedbackForm');
+    const successMsg = document.getElementById('successMsg');
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const checkedTypes = [...document.querySelectorAll('input[name="feedback_type"]:checked')]
+        .map(cb => cb.value === 'Other' ? 'Other: ' + otherInput.value : cb.value)
+        .join(', ');
+
+      if (!checkedTypes) {
+        alert('Please select at least one Feedback Type.');
+        return;
+      }
+
+      const privacyCheck = document.getElementById('privacyCheck');
+      if (!privacyCheck.checked) {
+        alert('Please agree to the privacy statement before submitting.');
+        return;
+      }
+
+      const btn = form.querySelector('.btn-submit');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
+      const data = new FormData(form);
+      data.set('feedback_type', checkedTypes);
+
+      try {
+        await fetch(SCRIPT_URL, { method: 'POST', body: data });
+        form.reset();
+        otherInput.style.display = 'none';
+        successMsg.style.display = 'block';
+      } catch (err) {
+        alert('Something went wrong. Please try again.');
+      } finally {
+        btn.innerHTML = 'Submit Feedback <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>';
+        btn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
