@@ -178,14 +178,6 @@
       <textarea name="feedback" placeholder="Your feedback, comments, or recommendations *" required></textarea>
     </div>
 
-    <div class="privacy-box">
-      <p>Your responses will remain confidential and will be used solely for quality improvement purposes.</p>
-      <label>
-        <input type="checkbox" id="privacyCheck" required>
-        I agree to submit my feedback.
-      </label>
-    </div>
-
     <button type="submit" class="btn-submit">
       Submit Feedback
       <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
@@ -204,12 +196,6 @@
 
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
-
-      const privacyCheck = document.getElementById('privacyCheck');
-      if (!privacyCheck.checked) {
-        alert('Please agree to the privacy statement before submitting.');
-        return;
-      }
 
       const btn = form.querySelector('.btn-submit');
       btn.textContent = 'Sending...';
