@@ -10,42 +10,33 @@
     body {
       font-family: 'Segoe UI', sans-serif;
       background: #fff;
-      padding: 1.2rem 1rem;
+      padding: 1rem;
     }
 
     h2 {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       font-weight: 700;
       color: #1a1a1a;
       margin-bottom: 0.2rem;
     }
 
     .subtitle {
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       color: #666;
-      margin-bottom: 1rem;
+      margin-bottom: 0.9rem;
       line-height: 1.4;
     }
 
     .form-group {
       display: flex;
       flex-direction: column;
-      margin-bottom: 0.7rem;
-    }
-
-    label.field-label {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: #333;
-      margin-bottom: 0.25rem;
-    }
-
-    label.field-label span {
-      color: #e53935;
+      margin-bottom: 0.6rem;
     }
 
     input[type="text"],
     input[type="tel"],
+    input[type="email"],
+    select,
     textarea {
       border: 1.5px solid #d0d0d0;
       border-radius: 50px;
@@ -57,9 +48,19 @@
       font-family: inherit;
       background: #fafafa;
       width: 100%;
+      appearance: none;
+      -webkit-appearance: none;
     }
 
-    input:focus, textarea:focus {
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+      cursor: pointer;
+    }
+
+    input:focus, textarea:focus, select:focus {
       border-color: #2e8b57;
       background: #fff;
     }
@@ -72,65 +73,22 @@
     textarea {
       border-radius: 16px;
       resize: vertical;
-      min-height: 90px;
+      min-height: 80px;
       padding: 0.6rem 1rem;
-    }
-
-    .checkbox-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-      margin-top: 0.15rem;
-    }
-
-    .checkbox-group label {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.88rem;
-      color: #333;
-      cursor: pointer;
-    }
-
-    .checkbox-group input[type="checkbox"] {
-      width: 15px;
-      height: 15px;
-      accent-color: #2e8b57;
-      cursor: pointer;
-    }
-
-    .other-input {
-      border: 1.5px solid #d0d0d0;
-      border-radius: 50px;
-      padding: 0.4rem 0.9rem;
-      font-size: 0.85rem;
-      color: #1a1a1a;
-      outline: none;
-      font-family: inherit;
-      background: #fafafa;
-      width: 70%;
-      margin-left: 1.4rem;
-      margin-top: 0.25rem;
-      display: none;
-    }
-
-    .other-input:focus {
-      border-color: #2e8b57;
-      background: #fff;
     }
 
     .privacy-box {
       background: #f0f7f4;
       border: 1px solid #c3ddd0;
       border-radius: 10px;
-      padding: 0.7rem 1rem;
-      margin-bottom: 0.8rem;
+      padding: 0.6rem 0.9rem;
+      margin-bottom: 0.7rem;
     }
 
     .privacy-box p {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: #444;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
       line-height: 1.4;
     }
 
@@ -138,15 +96,15 @@
       display: flex;
       align-items: center;
       gap: 0.4rem;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 600;
       color: #2e8b57;
       cursor: pointer;
     }
 
     .privacy-box input[type="checkbox"] {
-      width: 15px;
-      height: 15px;
+      width: 14px;
+      height: 14px;
       accent-color: #2e8b57;
     }
 
@@ -185,95 +143,67 @@
       border: 1px solid #2e8b57;
       color: #1a5c37;
       border-radius: 10px;
-      padding: 0.8rem 1rem;
-      margin-top: 0.8rem;
-      font-size: 0.85rem;
-    }
-
-    @media (max-width: 540px) {
-      .other-input { width: 85%; }
+      padding: 0.7rem 1rem;
+      margin-top: 0.7rem;
+      font-size: 0.83rem;
     }
   </style>
 </head>
 <body>
-    <h2>Customer Feedback</h2>
-    <p class="subtitle">We value your feedback! Please take a moment to share your experience with us.</p>
+  <form id="feedbackForm">
 
-    <form id="feedbackForm">
-
-      <div class="form-group">
-        <label class="field-label">Feedback Type <span>*</span></label>
-        <div class="checkbox-group">
-          <label><input type="checkbox" name="feedback_type" value="Comments"> Comments</label>
-          <label><input type="checkbox" name="feedback_type" value="Questions"> Questions</label>
-          <label><input type="checkbox" name="feedback_type" value="Suggestions"> Suggestions</label>
-          <label><input type="checkbox" name="feedback_type" value="Other" id="otherCheckbox"> Other:</label>
-          <input type="text" class="other-input" id="otherInput" placeholder="Please specify..." />
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label class="field-label">Name <span>*</span></label>
-        <input type="text" name="name" placeholder="Enter your full name" required />
-      </div>
-
-      <div class="form-group">
-        <label class="field-label">Address <span>*</span></label>
-        <input type="text" name="address" placeholder="Enter your address" required />
-      </div>
-
-      <div class="form-group">
-        <label class="field-label">Contact Number <span>*</span></label>
-        <input type="tel" name="contact_number" placeholder="Enter your contact number" required />
-      </div>
-
-      <div class="form-group">
-        <label class="field-label">Your Feedback <span>*</span></label>
-        <textarea name="feedback" placeholder="Share your comments, concerns, or recommendations here." required></textarea>
-      </div>
-
-      <div class="privacy-box">
-        <p>Your responses will remain confidential and will be used solely for quality improvement purposes.</p>
-        <label>
-          <input type="checkbox" id="privacyCheck" required>
-          I agree to submit my feedback.
-        </label>
-      </div>
-
-      <button type="submit" class="btn-submit">
-        Submit Feedback
-        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-      </button>
-    </form>
-
-    <div class="success-msg" id="successMsg">
-      ✅ Thank you for your feedback! Your response has been submitted successfully.
+    <div class="form-group">
+      <select name="feedback_type" id="feedbackType" required>
+        <option value="" disabled selected>Feedback Type *</option>
+        <option value="Comments">Comments</option>
+        <option value="Questions">Questions</option>
+        <option value="Suggestions">Suggestions</option>
+        <option value="Other">Other</option>
+      </select>
     </div>
+
+    <div class="form-group">
+      <input type="text" name="name" placeholder="Name *" required />
+    </div>
+
+    <div class="form-group">
+      <input type="email" name="email" placeholder="Email Address *" required />
+    </div>
+
+    <div class="form-group">
+      <input type="tel" name="contact_number" placeholder="Contact Number *" required />
+    </div>
+
+    <div class="form-group">
+      <textarea name="feedback" placeholder="Your feedback, comments, or recommendations *" required></textarea>
+    </div>
+
+    <div class="privacy-box">
+      <p>Your responses will remain confidential and will be used solely for quality improvement purposes.</p>
+      <label>
+        <input type="checkbox" id="privacyCheck" required>
+        I agree to submit my feedback.
+      </label>
+    </div>
+
+    <button type="submit" class="btn-submit">
+      Submit Feedback
+      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </form>
+
+  <div class="success-msg" id="successMsg">
+    ✅ Thank you for your feedback! Your response has been submitted successfully.
+  </div>
 
   <script>
     const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw2evnkIFijhs-dTfdwfb0imIAnu-4TrFDKPWT7i_hCAMO6upj8WB-GJBCxijFsQ9LU/exec';
-
-    const otherCheckbox = document.getElementById('otherCheckbox');
-    const otherInput = document.getElementById('otherInput');
-
-    otherCheckbox.addEventListener('change', function() {
-      otherInput.style.display = this.checked ? 'block' : 'none';
-    });
 
     const form = document.getElementById('feedbackForm');
     const successMsg = document.getElementById('successMsg');
 
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
-
-      const checkedTypes = [...document.querySelectorAll('input[name="feedback_type"]:checked')]
-        .map(cb => cb.value === 'Other' ? 'Other: ' + otherInput.value : cb.value)
-        .join(', ');
-
-      if (!checkedTypes) {
-        alert('Please select at least one Feedback Type.');
-        return;
-      }
 
       const privacyCheck = document.getElementById('privacyCheck');
       if (!privacyCheck.checked) {
@@ -286,12 +216,10 @@
       btn.disabled = true;
 
       const data = new FormData(form);
-      data.set('feedback_type', checkedTypes);
 
       try {
         await fetch(SCRIPT_URL, { method: 'POST', body: data });
         form.reset();
-        otherInput.style.display = 'none';
         successMsg.style.display = 'block';
       } catch (err) {
         alert('Something went wrong. Please try again.');
