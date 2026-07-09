@@ -9,47 +9,35 @@
 
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #f5f5f5;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 2rem;
-    }
-
-    .form-wrapper {
       background: #fff;
-      border-radius: 16px;
-      padding: 2.5rem 2rem;
-      width: 100%;
-      max-width: 720px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      padding: 1.2rem 1rem;
     }
 
     h2 {
-      font-size: 1.6rem;
+      font-size: 1.3rem;
       font-weight: 700;
       color: #1a1a1a;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.2rem;
     }
 
     .subtitle {
-      font-size: 0.92rem;
+      font-size: 0.85rem;
       color: #666;
-      margin-bottom: 1.8rem;
+      margin-bottom: 1rem;
+      line-height: 1.4;
     }
 
     .form-group {
       display: flex;
       flex-direction: column;
-      margin-bottom: 1rem;
+      margin-bottom: 0.7rem;
     }
 
     label.field-label {
-      font-size: 0.9rem;
+      font-size: 0.82rem;
       font-weight: 600;
       color: #333;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.25rem;
     }
 
     label.field-label span {
@@ -61,8 +49,8 @@
     textarea {
       border: 1.5px solid #d0d0d0;
       border-radius: 50px;
-      padding: 0.75rem 1.2rem;
-      font-size: 0.95rem;
+      padding: 0.6rem 1rem;
+      font-size: 0.88rem;
       color: #1a1a1a;
       outline: none;
       transition: border-color 0.2s;
@@ -78,34 +66,35 @@
 
     input::placeholder, textarea::placeholder {
       color: #aaa;
+      font-size: 0.85rem;
     }
 
     textarea {
-      border-radius: 20px;
+      border-radius: 16px;
       resize: vertical;
-      min-height: 120px;
-      padding: 0.9rem 1.2rem;
+      min-height: 90px;
+      padding: 0.6rem 1rem;
     }
 
     .checkbox-group {
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
-      margin-top: 0.2rem;
+      gap: 0.35rem;
+      margin-top: 0.15rem;
     }
 
     .checkbox-group label {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      font-size: 0.95rem;
+      gap: 0.4rem;
+      font-size: 0.88rem;
       color: #333;
       cursor: pointer;
     }
 
     .checkbox-group input[type="checkbox"] {
-      width: 16px;
-      height: 16px;
+      width: 15px;
+      height: 15px;
       accent-color: #2e8b57;
       cursor: pointer;
     }
@@ -113,15 +102,15 @@
     .other-input {
       border: 1.5px solid #d0d0d0;
       border-radius: 50px;
-      padding: 0.5rem 1rem;
-      font-size: 0.9rem;
+      padding: 0.4rem 0.9rem;
+      font-size: 0.85rem;
       color: #1a1a1a;
       outline: none;
       font-family: inherit;
       background: #fafafa;
-      width: 60%;
-      margin-left: 1.5rem;
-      margin-top: 0.3rem;
+      width: 70%;
+      margin-left: 1.4rem;
+      margin-top: 0.25rem;
       display: none;
     }
 
@@ -133,55 +122,56 @@
     .privacy-box {
       background: #f0f7f4;
       border: 1px solid #c3ddd0;
-      border-radius: 12px;
-      padding: 1rem 1.2rem;
-      margin-bottom: 1rem;
+      border-radius: 10px;
+      padding: 0.7rem 1rem;
+      margin-bottom: 0.8rem;
     }
 
     .privacy-box p {
-      font-size: 0.88rem;
+      font-size: 0.8rem;
       color: #444;
-      margin-bottom: 0.75rem;
-      line-height: 1.5;
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
     }
 
     .privacy-box label {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      font-size: 0.9rem;
+      gap: 0.4rem;
+      font-size: 0.82rem;
       font-weight: 600;
       color: #2e8b57;
       cursor: pointer;
     }
 
     .privacy-box input[type="checkbox"] {
-      width: 16px;
-      height: 16px;
+      width: 15px;
+      height: 15px;
       accent-color: #2e8b57;
     }
 
     .btn-submit {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      justify-content: center;
+      gap: 0.4rem;
       background: #2e8b57;
       color: #fff;
       border: none;
       border-radius: 50px;
-      padding: 0.75rem 2rem;
-      font-size: 0.95rem;
+      padding: 0.65rem 1.8rem;
+      font-size: 0.9rem;
       font-weight: 600;
       cursor: pointer;
       transition: background 0.2s;
-      margin-top: 0.5rem;
+      width: 100%;
     }
 
     .btn-submit:hover { background: #246b44; }
 
     .btn-submit svg {
-      width: 18px;
-      height: 18px;
+      width: 16px;
+      height: 16px;
       fill: none;
       stroke: white;
       stroke-width: 2.5;
@@ -194,19 +184,18 @@
       background: #e8f5ef;
       border: 1px solid #2e8b57;
       color: #1a5c37;
-      border-radius: 12px;
-      padding: 1rem 1.25rem;
-      margin-top: 1rem;
-      font-size: 0.93rem;
+      border-radius: 10px;
+      padding: 0.8rem 1rem;
+      margin-top: 0.8rem;
+      font-size: 0.85rem;
     }
 
     @media (max-width: 540px) {
-      .other-input { width: 90%; }
+      .other-input { width: 85%; }
     }
   </style>
 </head>
 <body>
-  <div class="form-wrapper">
     <h2>Customer Feedback</h2>
     <p class="subtitle">We value your feedback! Please take a moment to share your experience with us.</p>
 
@@ -260,7 +249,6 @@
     <div class="success-msg" id="successMsg">
       ✅ Thank you for your feedback! Your response has been submitted successfully.
     </div>
-  </div>
 
   <script>
     const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw2evnkIFijhs-dTfdwfb0imIAnu-4TrFDKPWT7i_hCAMO6upj8WB-GJBCxijFsQ9LU/exec';
@@ -308,7 +296,7 @@
       } catch (err) {
         alert('Something went wrong. Please try again.');
       } finally {
-        btn.innerHTML = 'Submit Feedback <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>';
+        btn.innerHTML = 'Submit Feedback <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>';
         btn.disabled = false;
       }
     });
